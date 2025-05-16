@@ -81,5 +81,48 @@ $(document).ready(() => {
 		  }
 		});
 	})
+
+	// -------------------------------------- 3rd API --------------------------------------
+	$('#getNeighbours').on('click', function (e) {
+		e.preventDefault();
+		const countries = {
+			"GB": 2635167,
+			"FR": 3017382,
+			"DE": 2921044,
+			"IT": 3175395
+		}
+	
+		const country = $('#countryNeighbours').val();
+		if (!country) {
+		  alert("Please select a country.");
+		  return;
+		}
+	
+		$.ajax({
+		  url: 'libs/php/getCountryNeighbours.php',
+		  method: 'GET',
+		  data: {
+			geonameId: countries[country],
+		  },
+		  dataType: 'json',
+		  success: function (data) {
+			if (data) {
+			  let neighbourList = '<ul class="list-group">';
+			  data.geonames.forEach(neighbour => {
+				neighbourList += `<li class="list-group-item">${neighbour.name}</li>`;
+			  });
+			  neighbourList += '</ul>';
+		  
+			  $('#neighboursResult').html(neighbourList);
+			} else {
+			  $('#neighboursResult').html('<p class="text-danger">No neighbour data found.</p>');
+			}
+		  },
+		  error: function (e) {
+			console.log(JSON.stringify(e));
+			$('#neighboursResult').html('<p class="text-danger">Failed to fetch neighbour data.</p>');
+		  }
+		});
+	})
 		
 });
