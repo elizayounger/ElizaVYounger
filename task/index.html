@@ -14,7 +14,7 @@
 		<link href="favicon.ico" rel="icon">
 		<!-- <link href="vendors/twbs/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
 		<link rel="stylesheet" href="libs/css/bootstrap.min.css">
-		<link href="libs/css/style.css" rel="stylesheet">
+		<!-- <link href="libs/css/style.css" rel="stylesheet"> -->
 
 
 	</head>
@@ -24,21 +24,70 @@
 
 		<div class="main">
 
-			<div class="container my-4 p-4 bg-light border rounded shadow-sm">
-				<div class="row text-center fw-semibold">
-				 	<div class="col-sm text-primary">
-						<h5>APIname</h5>
+			<div class="container bordered-grid my-4 p-4 bg-light rounded shadow-sm">
+				<!-- Header Row -->
+				<div class="row text-center fw-semibold mb-3">
+				  <div class="col-sm px-3 text-primary">
+					<h5>API Name</h5>
+				  </div>
+				  <div class="col-sm px-3 text-success">
+					<h5>API Description</h5>
+				  </div>
+				  <div class="col-sm px-3 text-danger">
+					<h5>API Results</h5>
+				  </div>
+				</div>
+			  
+				<!-- Row 1 -->
+				<div class="row">
+					<div class="col-sm px-3">
+					  TimeZone
 					</div>
-					<div class="col-sm text-success">
-						<h5>APIdescription</h5>
-					</div>
-					<div class="col-sm text-danger">
-						<h5>APIsubmit</h5>
+					<div class="col-sm px-3">
+						<p>Provides sunrise, sunset and timezone data for any location.</p>
+					  
+						<label for="lng"><strong>Longitude</strong> (-180.00 to 180.00):</label><br>
+						<input type="number" id="lng" name="lng" step="0.01"><br><br>
+					  
+						<label for="lat"><strong>Latitude</strong> (-90.00 to 90.00):</label><br>
+						<input type="number" id="lat" name="lat" step="0.01"><br><br>
+					  
+						<button id="getTimezone" class="btn btn-sm btn-primary">Submit</button>
+					  
+					</div>					  
+					<div class="col-sm px-3" id="timezoneResult">
+					  
 					</div>
 				</div>
-			</div>			  
 			  
+				<!-- Row 2 -->
+				<div class="row">
+					<div class="col-sm px-3">
+					  Regions
+					</div>
+					<div class="col-sm px-3">
+						<p>List the regions of the country.</p>
+					  
+						<label for="country"><strong>Country</strong>:</label><br>
+						<select id="country">
+							<option value="GB">Great Britain</option>
+							<option value="FR">France</option>
+							<option value="DE">Germany</option>
+							<option value="IT">Italy</option>
+						</select>
+					  
+						<button id="getRegions" class="btn btn-sm btn-primary">Submit</button>
+					  
+					</div>					  
+					<div class="col-sm px-3" id="regionResult">
+					  
+					</div>
+				</div>
+				
 
+			  </div>
+									  
+			  
 		</div>
 
 		<div id="preloader"></div>
