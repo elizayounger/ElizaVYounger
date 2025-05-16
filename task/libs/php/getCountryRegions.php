@@ -4,7 +4,7 @@ header('Content-Type: application/json; charset=UTF-8');
 $geonameId = filter_var($_GET['geonameId'] ?? null, FILTER_VALIDATE_FLOAT);
 
 
-if ($geonameId) {
+if (!$geonameId) {
     echo json_encode(['error' => 'No Country selected']);
     exit;
 }
