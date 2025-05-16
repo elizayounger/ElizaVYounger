@@ -1,0 +1,13 @@
+{
+    "name": "elizayounger/it_career_switch_task",
+    "description": "IT Career Switch PHP API & AJAX task",
+    "require": {
+        "twbs/bootstrap": "^5.3"
+    },
+    "authors": [
+        {
+            "name": "elizayounger",
+            "email": "elizayounger@hotmail.co.uk"
+        }
+    ]
+}
